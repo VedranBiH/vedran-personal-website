@@ -1,0 +1,31 @@
+<div class="todo-container">
+  <h2>To-Do List</h2>
+  <div class="input-container">
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newTodo"
+      placeholder="Add a new task"
+    />
+    <button
+      pButton
+      type="button"
+      icon="pi pi-plus"
+      label="Add"
+      (click)="addTodo()"
+    ></button>
+  </div>
+  <ul>
+    <li *ngFor="let todo of todos; let i = index">
+      <p-checkbox [(ngModel)]="todo.completed" binary="true" [disabled]="todo.completed"></p-checkbox>
+      <span>{{ todo.text }}</span>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-trash"
+        class="p-button-danger"
+        (click)="deleteTodo(i)"
+      ></button>
+    </li>
+  </ul>
+</div>
